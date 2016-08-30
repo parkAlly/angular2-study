@@ -1,0 +1,7 @@
+
+ # 재고가 별로 없어요!
+
+<div>alert-limit-count 입력 : <input [(ngModel)]="limitCount"></div>
+<div *ngFor="let item of (data | soldoutAlert : limitCount)">
+  {{item.name}}
+</div>

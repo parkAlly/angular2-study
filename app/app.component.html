@@ -1,0 +1,35 @@
+<h1>
+  {{title}}
+</h1>
+
+<div class="col-md-6 mg-130">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of _product">
+        <td> {{item.id}} </td>
+        <td> {{item.name}} </td>
+        <td>
+          {{item.count}}
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>
+  <button type="button" class="btn btn-primary btn-lg" (click) = "gotoDetail('search')">제품 검색</button>
+  <button type="button" class="btn btn-success btn-lg" (click) = "gotoDetail('table')">제품 관리</button>
+  <button type="button" class="btn btn-warning btn-lg" (click) = "gotoDetail('manage')">제품 추가</button>
+</p>
+
+<app-product-manage (addProductEvent)="addProductEvent($event)"></app-product-manage>
+<app-product-search [count] = '_count' (searchName) = "searchEvent($event)"></app-product-search>
+<app-product-table [data] = '_product' (itemEvent) = "itemEvent($event)"></app-product-table>
+<app-product-alert [data] = '_product' ></app-product-alert>
