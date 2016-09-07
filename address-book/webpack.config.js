@@ -15,6 +15,17 @@ module.exports = {
   resolve: {
     extensions: ['','.js','.ts']
   },
+  devServer: {
+    port: 8080,
+    proxy: {
+      '/[a-zA-Z0-9]*': {
+        target: 'http://localhost:8080/',
+        pathRewrite: {
+          '/[a-zA-Z0-9]*' : '/'
+        }
+      }
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template:'./src/index.html'
