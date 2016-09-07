@@ -15,6 +15,8 @@ var app_routing_1 = require('./app.routing');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./home/home.component');
 var list_component_1 = require('./list/list.component');
+var view_component_1 = require('./detail-view/view.component');
+var management_component_1 = require('./detail-management/management.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,7 +30,9 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,
-                list_component_1.ListComponent
+                list_component_1.ListComponent,
+                view_component_1.ViewComponent,
+                management_component_1.ManagementComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

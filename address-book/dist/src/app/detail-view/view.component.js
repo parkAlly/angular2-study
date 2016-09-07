@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var ViewComponent = (function () {
+    function ViewComponent() {
     }
-    AppComponent = __decorate([
+    ViewComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<h1> Ally Address Book </h1>\n       <a routerLink=\"/home\">home</a>\n       <a routerLink=\"/list\">list</a>\n       <a routerLink=\"/view\">view</a>\n       <a routerLink=\"/management\">management</a>\n       <router-outlet></router-outlet>\n       "
+            selector: 'address-view',
+            template: "\n    <h1>VIEW</h1>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ViewComponent);
+    return ViewComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.ViewComponent = ViewComponent;

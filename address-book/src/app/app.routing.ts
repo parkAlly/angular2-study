@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent }   from './app.component';
 import { HomeComponent }  from './home/home.component';
 import { ListComponent }  from './list/list.component';
+import { ViewComponent }  from './detail-view/view.component';
+import { ManagementComponent }  from './detail-management/management.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +20,14 @@ const appRoutes: Routes = [
   {
     path: 'list',
     component: ListComponent
+  },
+  {
+    path: 'view',
+    component: ViewComponent
+  },
+  {
+    path: 'management',
+    component: ManagementComponent
   }
 ];
 
