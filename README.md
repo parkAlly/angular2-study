@@ -9,7 +9,7 @@
   - @Input, @Output, @Pipe
   
 2.rc6-webpack-init 
-  - angular2 RC.6 version + webpack 
+  - angular2 RC.6 version + webpack seed project
   
 3.address-book : 2 week Test 
   - angular2 RC.6 version + webpack 
