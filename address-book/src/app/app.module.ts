@@ -9,6 +9,9 @@ import { ListComponent }  from './list/list.component';
 import { ViewComponent }  from './detail-view/view.component';
 import { ManagementComponent }  from './detail-management/management.component';
 
+import { SearchBoxComponent }  from './component/search-box.component';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -20,7 +23,9 @@ import { ManagementComponent }  from './detail-management/management.component';
     HomeComponent,
     ListComponent,
     ViewComponent,
-    ManagementComponent
+    ManagementComponent,
+
+    SearchBoxComponent
   ],
   bootstrap:    [ AppComponent ]
 })
