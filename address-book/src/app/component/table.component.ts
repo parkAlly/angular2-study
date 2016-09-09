@@ -15,6 +15,15 @@ import { AddressInterface } from '../service/address.interface';
     .user-action-icon{
       z-index : 999;
     }
+    .user-pic-area{
+      width: 30px;
+      height: 30px;
+    }
+    .user-pic-area > img{
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
     `],
   template: `
     <div class="table-area col-md-12 col-sm-12 col-lg-12">
@@ -22,7 +31,11 @@ import { AddressInterface } from '../service/address.interface';
           <tbody>
             <tr *ngFor="let user of (contactData | userFilter:searchText:page); let i = index; trackBy: trackByFn"
               routerLink="/view">
-              <td>사진위치</td>
+              <td>
+                <div class="user-pic-area">
+                  <img src={{user.img}}/>
+                </div>
+              </td>
               <td>{{user.name}}</td>
               <td>{{user.num}}</td>
               <td class="user-action-icon">
