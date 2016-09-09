@@ -10,6 +10,28 @@ import { ViewComponent }  from './detail-view/view.component';
 import { ManagementComponent }  from './detail-management/management.component';
 
 import { SearchBoxComponent }  from './component/search-box.component';
+import { ContactTableComponent }  from './component/table.component';
+import { ContactIconComponent }  from './component/contact-icon.component';
+
+import { userFilterPipe } from './pipe/user-filter.pipe';
+
+const pageComponent = [
+  AppComponent,
+  HomeComponent,
+  ListComponent,
+  ViewComponent,
+  ManagementComponent
+];
+
+const shareComponent = [
+  SearchBoxComponent,
+  ContactTableComponent,
+  ContactIconComponent
+];
+
+const pipe = [
+  userFilterPipe
+];
 
 
 @NgModule({
@@ -19,13 +41,9 @@ import { SearchBoxComponent }  from './component/search-box.component';
     routing
   ],
   declarations: [
-    AppComponent,
-    HomeComponent,
-    ListComponent,
-    ViewComponent,
-    ManagementComponent,
-
-    SearchBoxComponent
+    ...pageComponent,
+    ...shareComponent,
+    ...pipe
   ],
   bootstrap:    [ AppComponent ]
 })

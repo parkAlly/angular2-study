@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AddressService } from '../service/address.service';
+import { AddressInterface } from '../service/address.interface';
 
 @Component({
   selector: 'address-home',
@@ -18,6 +20,16 @@ import { Component, Input } from '@angular/core';
       border-radius: 5px;
       padding: 1px 4px 1px 4px;
     }
+    .home-info {
+      height: 400px;
+      background-color: #d9d9d9;
+    }
+    .home-info > p {
+      text-align : center;
+    }
+    #firstTitle{
+      padding-top: 140px;
+    }
     `
   ],
   template: `
@@ -25,8 +37,38 @@ import { Component, Input } from '@angular/core';
       <a class="nav-font" routerLink="/view">All</a>
       <a class="nav-font" routerLink="/management">NEW</a>
     </div>
-    <search-box></search-box>
-  `
+    <div class="home-info">
+      <p id="firstTitle">Ally's AddressBook</p>
+      <p><i class="fa fa-users fa-5x" aria-hidden="true"></i></p>
+    </div>
+    <search-box (handleSendName) = "handleSetSearchData($event)"></search-box>
+    <contact-table [contactData] = "_contectData" [searchText] = "_searchText" [page]="'home'"
+      (handleToggleFavorite) = "handleToggleFavorite($event)"
+      (handleDeleteUser) = "handleDeleteUser($event)"
+      ></contact-table>
+  `,
+  providers: [AddressService]
 })
 export class HomeComponent {
+  constructor(private addressService: AddressService) {}
+  _contectData : AddressInterface[];
+  _searchText : string;
+
+  ngOnInit(){
+    this._contectData = this.addressService.getContectData();
+  }
+
+  handleSetSearchData(name: string){
+    console.log(name);
+    this._searchText = name;
+  }
+
+  handleToggleFavorite(userID: number){
+    this._contectData = this.addressService.setToggleFavorite(userID);
+  }
+
+  handleDeleteUser(userID: number){
+    this._contectData = this.addressService.setDeleteUser(userID);
+  }
+
 }

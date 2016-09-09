@@ -14,12 +14,8 @@ import { Component } from '@angular/core';
     `
   ],
   template : `
-      <div class="col-lg-12" id="header-bar">
-        <span> Ally Address Book </span>
-      </div>
-
-
-       <router-outlet></router-outlet>
+      <div class="col-lg-12" id="header-bar"></div>
+      <router-outlet></router-outlet>
        `
 })
 

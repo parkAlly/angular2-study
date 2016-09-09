@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'search-box',
@@ -47,18 +47,27 @@ import { Component, Input } from '@angular/core';
 
     `],
   template: `
-
     <div class="search-area col-md-12 col-sm-12 col-lg-12">
       <section id="search">
         <label for="searchBox">
           <i class="fa fa-search" aria-hidden="true"></i>
           <span class="sr-only">Search icons</span>
         </label>
-        <input id="searchBox" class="form-control input-lg" placeholder="이름을 검색해주세요.">
+        <input id="searchBox" class="form-control input-lg" placeholder="이름을 검색해주세요." (keyup)="setName($event)">
         <a id="search-clear" href="#" class="fa fa-times-circle" aria-hidden="true"><span class="sr-only">Clear search</span></a>
       </section>
     </div>
   `
 })
 export class SearchBoxComponent {
+  @Output() handleSendName = new EventEmitter();
+  
+  constructor() { }
+
+  ngOnInit(){}
+
+  setName($event:any){
+    this.handleSendName.emit($event.target.value);
+  }
+
 }
