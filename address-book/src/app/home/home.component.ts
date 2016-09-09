@@ -3,7 +3,7 @@ import { AddressService } from '../service/address.service';
 import { AddressInterface } from '../service/address.interface';
 
 @Component({
-  selector: 'address-home',
+  selector: 'addressHome',
   styles:[
     `
     .btn-place {
@@ -34,18 +34,18 @@ import { AddressInterface } from '../service/address.interface';
   ],
   template: `
     <div class="btn-place">
-      <a class="nav-font" routerLink="/view">All</a>
+      <a class="nav-font" routerLink="/list">All CONTACT</a>
       <a class="nav-font" routerLink="/management">NEW</a>
     </div>
     <div class="home-info">
       <p id="firstTitle">Ally's AddressBook</p>
       <p><i class="fa fa-users fa-5x" aria-hidden="true"></i></p>
     </div>
-    <search-box (handleSendName) = "handleSetSearchData($event)"></search-box>
-    <contact-table [contactData] = "_contectData" [searchText] = "_searchText" [page]="'home'"
+    <searchBox (handleSendName) = "handleSetSearchData($event)"></searchBox>
+    <contactTable [contactData] = "_contectData" [searchText] = "_searchText" [page]="'home'"
       (handleToggleFavorite) = "handleToggleFavorite($event)"
       (handleDeleteUser) = "handleDeleteUser($event)"
-      ></contact-table>
+      ></contactTable>
   `,
   providers: [AddressService]
 })

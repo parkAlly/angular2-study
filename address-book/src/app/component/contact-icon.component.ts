@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'contact-icon',
+  selector: 'contactIcon',
   template: `
     <i *ngIf="contactType === 'message'" class="fa fa-commenting"
-      aria-hidden="true" (click)="handleSendMessage()"></i>
+      aria-hidden="true" (click)="handleSendMessage($event)"></i>
     <i *ngIf="contactType === 'call'" class="fa fa-phone"
-      aria-hidden="true" (click)="handleSendCall()"></i>
+      aria-hidden="true" (click)="handleSendCall($event)"></i>
   `
 })
 export class ContactIconComponent {
@@ -18,11 +18,13 @@ export class ContactIconComponent {
   ngOnInit(){
   }
 
-  handleSendMessage(){
+  handleSendMessage($event:any){
+    $event.stopPropagation();
     location.href="sms:"+this.phoneNumber;
   }
 
-  handleSendCall(){
+  handleSendCall($event:any){
+    $event.stopPropagation();
     location.href="tel:"+this.phoneNumber;
   }
 

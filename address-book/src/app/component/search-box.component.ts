@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'search-box',
+  selector: 'searchBox',
   styles:[`
     .search-area{
       padding : 5px;
@@ -53,21 +53,26 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
           <i class="fa fa-search" aria-hidden="true"></i>
           <span class="sr-only">Search icons</span>
         </label>
-        <input id="searchBox" class="form-control input-lg" placeholder="이름을 검색해주세요." (keyup)="setName($event)">
-        <a id="search-clear" href="#" class="fa fa-times-circle" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+        <input id="searchBox" class="form-control input-lg" placeholder="이름을 검색해주세요." (keyup)="handleSetName($event)" [(ngModel)]="_searchText">
+        <a id="search-clear" class="fa fa-times-circle" aria-hidden="true" (click)="handleResetText($event)"><span class="sr-only">Clear search</span></a>
       </section>
     </div>
   `
 })
 export class SearchBoxComponent {
   @Output() handleSendName = new EventEmitter();
-  
+  _searchText : string;
   constructor() { }
 
   ngOnInit(){}
 
-  setName($event:any){
+  handleSetName($event:any){
     this.handleSendName.emit($event.target.value);
+  }
+
+  handleResetText(){
+    this._searchText = '';
+    this.handleSendName.emit('');
   }
 
 }

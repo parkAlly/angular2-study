@@ -3,7 +3,7 @@ import { AddressService } from '../service/address.service';
 import { AddressInterface } from '../service/address.interface';
 
 @Component({
-  selector: 'address-view',
+  selector: 'addressView',
   styles:[
     `
     .btn-place {
@@ -23,14 +23,7 @@ import { AddressInterface } from '../service/address.interface';
     `
   ],
   template: `
-    <div class="btn-place">
-      <a class="nav-font" routerLink="/management">NEW</a>
-    </div>
-    <search-box (handleSendName) = "handleSetSearchData($event)"></search-box>
-    <contact-table [contactData] = "_contectData" [searchText] = "_searchText" [page]="'view'"
-      (handleToggleFavorite) = "handleToggleFavorite($event)"
-      (handleDeleteUser) = "handleDeleteUser($event)"
-      ></contact-table>
+    <div>Detail View...</div>
   `,
   providers: [AddressService]
 })
@@ -41,18 +34,5 @@ export class ViewComponent {
 
   ngOnInit(){
     this._contectData = this.addressService.getContectData();
-  }
-  
-  handleSetSearchData(name: string){
-    console.log(name);
-    this._searchText = name;
-  }
-
-  handleToggleFavorite(userID: number){
-    this._contectData = this.addressService.setToggleFavorite(userID);
-  }
-
-  handleDeleteUser(userID: number){
-    this._contectData = this.addressService.setDeleteUser(userID);
   }
 }

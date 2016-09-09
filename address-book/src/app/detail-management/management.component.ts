@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'address-management',
+  selector: 'addressManagement',
   template: `
     <h1>Management</h1>
   `

@@ -15,11 +15,17 @@ var ContactTableComponent = (function () {
         this.handleDeleteUser = new core_1.EventEmitter();
     }
     ContactTableComponent.prototype.ngOnInit = function () { };
-    ContactTableComponent.prototype.handleClickFavorite = function (userIndex) {
-        this.handleToggleFavorite.emit(userIndex);
+    // ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    //   console.log('changes',changes);
+    // }
+    ContactTableComponent.prototype.handleClickFavorite = function ($event, userID) {
+        // tr event가 먹히는 것을 방지
+        $event.stopPropagation();
+        this.handleToggleFavorite.emit(userID);
     };
-    ContactTableComponent.prototype.handleClickDelete = function (userIndex) {
-        this.handleDeleteUser.emit(userIndex);
+    ContactTableComponent.prototype.handleClickDelete = function ($event, userID) {
+        $event.stopPropagation();
+        this.handleDeleteUser.emit(userID);
     };
     __decorate([
         core_1.Input(), 
@@ -43,9 +49,9 @@ var ContactTableComponent = (function () {
     ], ContactTableComponent.prototype, "handleDeleteUser", void 0);
     ContactTableComponent = __decorate([
         core_1.Component({
-            selector: 'contact-table',
-            styles: ["\n    #noData {\n      text-align: center;\n      color: #d9d9d9;\n      font-weight: 600;\n      font-size: 2em;\n    }\n    "],
-            template: "\n    <div class=\"table-area col-md-12 col-sm-12 col-lg-12\">\n        <table class=\"table table-hover\">\n          <tbody>\n            <tr *ngFor=\"let user of (contactData | userFilter:searchText:page); let i = index; trackBy: trackByFn\">\n              <td>\uC0AC\uC9C4\uC704\uCE58</td>\n              <td>{{user.name}}</td>\n              <td>{{user.num}}</td>\n              <td>\n                <i class=\"fa\" [ngClass]=\"{'fa-star': user.favorite , 'fa-star-o': !user.favorite}\"\n                  aria-hidden=\"true\" (click)=\"handleClickFavorite(i)\"></i>\n              </td>\n              <td>\n                <contact-icon [phoneNumber] = \"user.num\" [contactType] = \"'message'\"></contact-icon>\n              </td>\n              <td>\n                <contact-icon [phoneNumber] = \"user.num\" [contactType] = \"'call'\"></contact-icon>\n              </td>\n              <td>\n                <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"handleClickDelete(i)\"></i>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n    </div>\n    <div *ngIf=\"(contactData | userFilter:searchText:page) === null\">\n      <p id=\"noData\">\uACB0\uACFC\uC5C6\uC74C</p>\n    </div>\n  "
+            selector: 'contactTable',
+            styles: ["\n    #noData {\n      text-align: center;\n      color: #d9d9d9;\n      font-weight: 600;\n      font-size: 2em;\n    }\n    .user-action-icon{\n      z-index : 999;\n    }\n    "],
+            template: "\n    <div class=\"table-area col-md-12 col-sm-12 col-lg-12\">\n        <table class=\"table table-hover\">\n          <tbody>\n            <tr *ngFor=\"let user of (contactData | userFilter:searchText:page); let i = index; trackBy: trackByFn\"\n              routerLink=\"/view\">\n              <td>\uC0AC\uC9C4\uC704\uCE58</td>\n              <td>{{user.name}}</td>\n              <td>{{user.num}}</td>\n              <td class=\"user-action-icon\">\n                <i class=\"fa\" [ngClass]=\"{'fa-star': user.favorite , 'fa-star-o': !user.favorite}\"\n                  aria-hidden=\"true\" (click)=\"handleClickFavorite($event,user.uID)\"></i>\n              </td>\n              <td class=\"user-action-icon\">\n                <contactIcon [phoneNumber] = \"user.num\" [contactType] = \"'message'\"></contactIcon>\n              </td>\n              <td class=\"user-action-icon\">\n                <contactIcon [phoneNumber] = \"user.num\" [contactType] = \"'call'\"></contactIcon>\n              </td>\n              <td class=\"user-action-icon\">\n                <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"handleClickDelete($event,user.uID)\"></i>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n    </div>\n    <div *ngIf=\"(contactData | userFilter:searchText:page) === null\">\n      <p id=\"noData\">\uACB0\uACFC\uC5C6\uC74C</p>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ContactTableComponent);

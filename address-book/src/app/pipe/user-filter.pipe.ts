@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { AddressInterface } from '../service/address.interface';
 
 @Pipe({
-  name: 'userFilter'
+  name: 'userFilter',
+  pure: false
 })
 export class userFilterPipe implements PipeTransform {
   transform(contactData: AddressInterface[], name : string, type: string){

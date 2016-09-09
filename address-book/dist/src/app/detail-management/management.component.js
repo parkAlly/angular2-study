@@ -9,26 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var userFilterPipe = (function () {
-    function userFilterPipe() {
+var ManagementComponent = (function () {
+    function ManagementComponent() {
     }
-    userFilterPipe.prototype.transform = function (contactData, name, type) {
-        if (name === undefined || name === '') {
-            return type === 'home' ? null : contactData;
-        }
-        else {
-            var filterResult = contactData.filter(function (user) { return (user.name.toLowerCase()).indexOf(name.toLowerCase()) > -1; });
-            return filterResult.length === 0 ? null : filterResult;
-        }
-    };
-    userFilterPipe = __decorate([
-        core_1.Pipe({
-            name: 'userFilter',
-            pure: false
+    ManagementComponent = __decorate([
+        core_1.Component({
+            selector: 'addressManagement',
+            template: "\n    <h1>Management</h1>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], userFilterPipe);
-    return userFilterPipe;
+    ], ManagementComponent);
+    return ManagementComponent;
 }());
-exports.userFilterPipe = userFilterPipe;
-//# sourceMappingURL=user-filter.pipe.js.map
+exports.ManagementComponent = ManagementComponent;
+//# sourceMappingURL=management.component.js.map

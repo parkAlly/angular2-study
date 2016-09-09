@@ -18,13 +18,32 @@ var AddressService = (function () {
     AddressService.prototype.getContectData = function () {
         return this._contectData;
     };
-    AddressService.prototype.setToggleFavorite = function (userIndex) {
+    /* origin배열에서 선택한 user index를 return해줌 */
+    AddressService.prototype.getUserCurrentIndex = function (userID) {
+        var userIndex;
+        this._contectData.forEach(function (user, arrindex) {
+            if (userID === user.uID) {
+                userIndex = arrindex;
+                return;
+            }
+        });
+        return userIndex;
+    };
+    /* 즐겨찾기 추가 or 해제 */
+    AddressService.prototype.setToggleFavorite = function (userID) {
+        var userIndex = this.getUserCurrentIndex(userID);
         var favoriteState = this._contectData[userIndex].favorite;
         this._contectData[userIndex].favorite = !favoriteState;
         return this._contectData;
     };
-    AddressService.prototype.setDeleteUser = function (userIndex) {
+    /* 유저 삭제 */
+    AddressService.prototype.setDeleteUser = function (userID) {
+        var userIndex = this.getUserCurrentIndex(userID);
         this._contectData.splice(userIndex, 1);
+        return this._contectData;
+    };
+    /* 유저 추가 */
+    AddressService.prototype.serInsertUser = function (userInfo) {
         return this._contectData;
     };
     AddressService = __decorate([

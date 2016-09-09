@@ -9,26 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var userFilterPipe = (function () {
-    function userFilterPipe() {
+var UserDetailViewComponent = (function () {
+    function UserDetailViewComponent() {
     }
-    userFilterPipe.prototype.transform = function (contactData, name, type) {
-        if (name === undefined || name === '') {
-            return type === 'home' ? null : contactData;
-        }
-        else {
-            var filterResult = contactData.filter(function (user) { return (user.name.toLowerCase()).indexOf(name.toLowerCase()) > -1; });
-            return filterResult.length === 0 ? null : filterResult;
-        }
-    };
-    userFilterPipe = __decorate([
-        core_1.Pipe({
-            name: 'userFilter',
-            pure: false
+    UserDetailViewComponent = __decorate([
+        core_1.Component({
+            selector: 'userDetailView',
+            template: "\n    <h1>OnlyView</h1>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], userFilterPipe);
-    return userFilterPipe;
+    ], UserDetailViewComponent);
+    return UserDetailViewComponent;
 }());
-exports.userFilterPipe = userFilterPipe;
-//# sourceMappingURL=user-filter.pipe.js.map
+exports.UserDetailViewComponent = UserDetailViewComponent;
+//# sourceMappingURL=user-detail-view.component.js.map
