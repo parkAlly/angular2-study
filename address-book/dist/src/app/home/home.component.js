@@ -15,7 +15,7 @@ var HomeComponent = (function () {
         this.addressService = addressService;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this._contectData = this.addressService.getContectData();
+        this._contectData = this.addressService.getContactData();
     };
     HomeComponent.prototype.handleSetSearchData = function (name) {
         console.log(name);

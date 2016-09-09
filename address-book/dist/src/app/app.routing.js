@@ -19,7 +19,7 @@ var appRoutes = [
         component: list_component_1.ListComponent
     },
     {
-        path: 'view',
+        path: 'view/:uID',
         component: view_component_1.ViewComponent
     },
     {

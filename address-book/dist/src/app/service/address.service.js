@@ -12,16 +12,16 @@ var core_1 = require('@angular/core');
 var address_data_1 = require('./address.data');
 var AddressService = (function () {
     function AddressService() {
-        this._contectData = address_data_1.ContactData;
-        this._originContectData = address_data_1.ContactData;
+        this._contactData = address_data_1.ContactData;
+        this._origincontactData = address_data_1.ContactData;
     }
-    AddressService.prototype.getContectData = function () {
-        return this._contectData;
+    AddressService.prototype.getContactData = function () {
+        return this._contactData;
     };
     /* origin배열에서 선택한 user index를 return해줌 */
     AddressService.prototype.getUserCurrentIndex = function (userID) {
         var userIndex;
-        this._contectData.forEach(function (user, arrindex) {
+        this._contactData.forEach(function (user, arrindex) {
             if (userID === user.uID) {
                 userIndex = arrindex;
                 return;
@@ -29,22 +29,27 @@ var AddressService = (function () {
         });
         return userIndex;
     };
+    /* 선택한 유저 정보 리턴 */
+    AddressService.prototype.getSelectUserData = function (userID) {
+        var userIndex = this.getUserCurrentIndex(userID);
+        return this._contactData[userIndex];
+    };
     /* 즐겨찾기 추가 or 해제 */
     AddressService.prototype.setToggleFavorite = function (userID) {
         var userIndex = this.getUserCurrentIndex(userID);
-        var favoriteState = this._contectData[userIndex].favorite;
-        this._contectData[userIndex].favorite = !favoriteState;
-        return this._contectData;
+        var favoriteState = this._contactData[userIndex].favorite;
+        this._contactData[userIndex].favorite = !favoriteState;
+        return this._contactData;
     };
     /* 유저 삭제 */
     AddressService.prototype.setDeleteUser = function (userID) {
         var userIndex = this.getUserCurrentIndex(userID);
-        this._contectData.splice(userIndex, 1);
-        return this._contectData;
+        this._contactData.splice(userIndex, 1);
+        return this._contactData;
     };
     /* 유저 추가 */
     AddressService.prototype.serInsertUser = function (userInfo) {
-        return this._contectData;
+        return this._contactData;
     };
     AddressService = __decorate([
         core_1.Injectable(), 

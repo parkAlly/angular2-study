@@ -4,20 +4,20 @@ import { ContactData } from './address.data';
 import { AddressInterface } from './address.interface';
 @Injectable()
 export class AddressService{
-  _contectData : AddressInterface[] = ContactData;
-  _originContectData : AddressInterface[] = ContactData;
+  _contactData : AddressInterface[] = ContactData;
+  _origincontactData : AddressInterface[] = ContactData;
 
   constructor() {}
 
-  getContectData(){
-    return this._contectData;
+  getContactData(){
+    return this._contactData;
   }
 
   /* origin배열에서 선택한 user index를 return해줌 */
   getUserCurrentIndex(userID: number){
     let userIndex : number ;
 
-    this._contectData.forEach((user,arrindex) => {
+    this._contactData.forEach((user,arrindex) => {
       if(userID === user.uID){
         userIndex = arrindex;
         return;
@@ -27,24 +27,30 @@ export class AddressService{
     return userIndex;
   }
 
+  /* 선택한 유저 정보 리턴 */
+  getSelectUserData(userID: number){
+    let userIndex : number = this.getUserCurrentIndex(userID);
+    return this._contactData[userIndex];
+  }
+
   /* 즐겨찾기 추가 or 해제 */
   setToggleFavorite(userID: number){
     let userIndex : number = this.getUserCurrentIndex(userID);
-    let favoriteState : boolean = this._contectData[userIndex].favorite;
-    this._contectData[userIndex].favorite = !favoriteState;
-    return this._contectData;
+    let favoriteState : boolean = this._contactData[userIndex].favorite;
+    this._contactData[userIndex].favorite = !favoriteState;
+    return this._contactData;
   }
 
   /* 유저 삭제 */
   setDeleteUser(userID: number){
     let userIndex : number = this.getUserCurrentIndex(userID);
-    this._contectData.splice(userIndex,1);
-    return this._contectData;
+    this._contactData.splice(userIndex,1);
+    return this._contactData;
   }
 
   /* 유저 추가 */
   serInsertUser(userInfo: AddressInterface[]){
-    return this._contectData;
+    return this._contactData;
   }
 
   /*

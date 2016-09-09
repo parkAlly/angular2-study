@@ -12,10 +12,16 @@ var core_1 = require('@angular/core');
 var ManagementComponent = (function () {
     function ManagementComponent() {
     }
+    ManagementComponent.prototype.handleDoSave = function ($event) {
+        console.log('저장..');
+    };
     ManagementComponent = __decorate([
         core_1.Component({
             selector: 'addressManagement',
-            template: "\n    <h1>Management</h1>\n  "
+            styles: [
+                "\n    .btn-place {\n      padding: 3px;\n      margin-right: 10px;\n      position: absolute;\n      top: 0px;\n      right: 0px;\n    }\n    .nav-font {\n      font-size: 1.0em;\n      color: #337ab7;\n      border: 1px solid #337ab7;\n      border-radius: 5px;\n      padding: 1px 4px 1px 4px;\n    }\n    "
+            ],
+            template: "\n    <div class=\"btn-place\">\n      <a class=\"nav-font\" routerLink=\"/home\">HOME</a>\n      <a class=\"nav-font\" routerLink=\"/list\">All CONTACTLIST</a>\n      <a class=\"nav-font\" (click)=\"handleDoSave($event)\">SAVE</a>\n    </div>\n    <div>Detail Edit or NEW...</div>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], ManagementComponent);

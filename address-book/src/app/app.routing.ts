@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     component: ListComponent
   },
   {
-    path: 'view',
+    path: 'view/:uID',
     component: ViewComponent
   },
   {

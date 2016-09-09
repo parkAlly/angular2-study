@@ -14,6 +14,7 @@ import { ContactTableComponent }  from './component/table.component';
 import { ContactIconComponent }  from './component/contact-icon.component';
 
 import { userFilterPipe } from './pipe/user-filter.pipe';
+import { phoneRegExpPipe } from './pipe/phone-number-regexp.pipe';
 
 const pageComponent = [
   AppComponent,
@@ -30,7 +31,8 @@ const shareComponent = [
 ];
 
 const pipe = [
-  userFilterPipe
+  userFilterPipe,
+  phoneRegExpPipe
 ];
 
 

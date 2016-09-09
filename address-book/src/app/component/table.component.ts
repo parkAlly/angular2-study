@@ -21,6 +21,7 @@ import { AddressInterface } from '../service/address.interface';
     }
     .user-pic-area > img{
       position: relative;
+      border-radius: 50%;
       width: 100%;
       height: 100%;
     }
@@ -30,7 +31,7 @@ import { AddressInterface } from '../service/address.interface';
         <table class="table table-hover">
           <tbody>
             <tr *ngFor="let user of (contactData | userFilter:searchText:page); let i = index; trackBy: trackByFn"
-              routerLink="/view">
+              routerLink="/view/{{user.uID}}">
               <td>
                 <div class="user-pic-area">
                   <img src={{user.img}}/>

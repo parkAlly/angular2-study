@@ -41,7 +41,7 @@ export class ListComponent {
   _searchText : string;
 
   ngOnInit(){
-    this._contectData = this.addressService.getContectData();
+    this._contectData = this.addressService.getContactData();
   }
 
   handleSetSearchData(name: string){

@@ -15,7 +15,7 @@ var ListComponent = (function () {
         this.addressService = addressService;
     }
     ListComponent.prototype.ngOnInit = function () {
-        this._contectData = this.addressService.getContectData();
+        this._contectData = this.addressService.getContactData();
     };
     ListComponent.prototype.handleSetSearchData = function (name) {
         console.log(name);

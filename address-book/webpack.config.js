@@ -23,6 +23,12 @@ module.exports = {
         pathRewrite: {
           '/[a-zA-Z0-9]*' : '/'
         }
+      },
+      '/[a-zA-Z0-9]*/[a-zA-Z0-9]*': {
+        target: 'http://localhost:8080/',
+        pathRewrite: {
+          '/[a-zA-Z0-9]*/[a-zA-Z0-9]*' : '/'
+        }
       }
     }
   },
