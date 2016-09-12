@@ -13,8 +13,7 @@ var phoneRegExpPipe = (function () {
     function phoneRegExpPipe() {
     }
     phoneRegExpPipe.prototype.transform = function (phoneNumber) {
-        var regExp = "(\\d{3})(\\d{3,4})(\\d{4})";
-        return phoneNumber ? phoneNumber.replace(/regExp/gi, "$1-$2-$3") : null;
+        return phoneNumber ? phoneNumber.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3") : null;
     };
     phoneRegExpPipe = __decorate([
         core_1.Pipe({

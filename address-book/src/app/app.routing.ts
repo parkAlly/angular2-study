@@ -2,6 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent }   from './app.component';
+import { PageNotFoundComponent }   from './page-not-found.component';
 import { HomeComponent }  from './home/home.component';
 import { ListComponent }  from './list/list.component';
 import { ViewComponent }  from './detail-view/view.component';
@@ -26,8 +27,16 @@ const appRoutes: Routes = [
     component: ViewComponent
   },
   {
-    path: 'management',
+    path: 'management/:type',
     component: ManagementComponent
+  },
+  {
+    path: 'management/:type/:uID',
+    component: ManagementComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 

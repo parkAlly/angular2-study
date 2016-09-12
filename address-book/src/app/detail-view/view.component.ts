@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { AddressService } from '../service/address.service';
 import { AddressInterface } from '../service/address.interface';
@@ -39,6 +39,7 @@ import { AddressInterface } from '../service/address.interface';
     .user-pic-area > img{
       position: relative;
       border-radius: 50%;
+      border: 1px solid gainsboro;
       width: 100%;
       height: 100%;
     }
@@ -73,66 +74,32 @@ import { AddressInterface } from '../service/address.interface';
       font-weight: 600;
       font-size: 1em;
     }
-
     `
   ],
-  template: `
-    <div class="btn-place">
-      <a class="nav-font" routerLink="/home">HOME</a>
-      <a class="nav-font" routerLink="/list">All CONTACTLIST</a>
-      <a class="nav-font" routerLink="/management">EDIT</a>
-    </div>
-    <div class="detail-area">
-      <div class="section fst">
-        <div class="title">
-          <div class="user-pic-area">
-            <img src={{_selectUserData?.img}}/>
-          </div>
-          <span class="user-name">{{_selectUserData?.name}}</span>
-        </div>
-        <div class="phone-info">
-          <p class="sub-title" id="phone">휴대전화</p>
-          <span>{{_selectUserData?.num | phoneRegExp}}</span>
-          <span class="user-action-icon">
-            <contactIcon [phoneNumber] = "_selectUserData?.num" [contactType] = "'call'"></contactIcon>
-          </span>
-          <span class="user-action-icon">
-            <contactIcon [phoneNumber] = "_selectUserData?.num" [contactType] = "'message'"></contactIcon>
-          </span>
-        </div>
-      </div>
-      <div class="section sec">
-        <div class="hashtag">
-          <p class="sub-title" id="hash">해쉬태그</p>
-          <div class="hashtag-none" *ngIf="_selectUserData?.hashList.length === 0">
-            <span> 해쉬태그를 추가해주세요! </span>
-          </div>
-          <div class="hashtag-result" *ngIf="_selectUserData?.hashList.length !== 0">
-            <span *ngFor="let teg of _selectUserData?.hashList" class="hashtag-item">
-              #{{teg}}
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  `,
+  templateUrl: './view.component.html',
   providers: [AddressService]
 })
 export class ViewComponent {
   constructor(
     private addressService: AddressService,
-    private route: ActivatedRoute ) {}
-  // _contectData : AddressInterface[];
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  _selectUserId : number;
   _selectUserData : AddressInterface;
   _searchText : string;
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      let id = +params['uID'];
-      this._selectUserData = this.addressService.getSelectUserData(id);
+      this._selectUserId = +params['uID'];
+      this._selectUserData = this.addressService.getSelectUserData(this._selectUserId);
     });
+  }
+
+  // 수정페이지로 이동
+  handleGoEditPage(){
+    this.router.navigate(['/management','edit',this._selectUserId]);
   }
 
 }

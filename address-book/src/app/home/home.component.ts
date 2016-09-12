@@ -35,7 +35,7 @@ import { AddressInterface } from '../service/address.interface';
   template: `
     <div class="btn-place">
       <a class="nav-font" routerLink="/list">All CONTACT</a>
-      <a class="nav-font" routerLink="/management">NEW</a>
+      <a class="nav-font" routerLink="/management/new">NEW</a>
     </div>
     <div class="home-info">
       <p id="firstTitle">Ally's AddressBook</p>

@@ -1,0 +1,38 @@
+<div class="btn-place">
+  <a class="nav-font" routerLink="/home">HOME</a>
+  <a class="nav-font" (click)="handleDoSave($event)">SAVE</a>
+</div>
+<div class="detail-area">
+  <div class="section fst">
+    <div class="title">
+      <div class="user-pic-area">
+        <img src={{_changeToUserData?.img}}/>
+      </div>
+      <div class="user-pic-edit">
+        <p>사진편집</p>
+        <input type="file" (change)="handleDoEditPic($event)"/>
+      </div>
+      <input type="text" class="user-name" value={{_changeToUserData?.name}} [(ngModel)]="_changeToUserData.name" />
+    </div>
+    <div class="phone-info">
+      <p class="sub-title" id="phone">휴대전화</p>
+      <input type="text" class="user-num" style="width: 100%"  value={{_changeToUserData?.num}} [(ngModel)]="_changeToUserData.num"/>
+    </div>
+  </div>
+  <div class="section sec">
+    <div class="hashtag">
+      <p class="sub-title" id="hash">해쉬태그</p>
+      <div class="hashtag-none" *ngIf="_changeToUserData?.hashTag === ''">
+        <input type="text" class="user-tag" style="width: 100%" [(ngModel)]="_changeToUserData.hashTag" placeholder="#을 통해 해쉬태그를 만들어주세요!" />
+      </div>
+      <div class="hashtag-result" *ngIf="_changeToUserData?.hashTag !== ''">
+        <input type="text" class="user-tag" style="width: 100%" value={{_changeToUserData?.hashTag}} [(ngModel)]="_changeToUserData.hashTag"/>
+        <div style="padding-top: 20px; opacity: 0.7;">
+          <span *ngFor="let teg of _changeToUserData?.hashTag.split('#')" >
+            <span class="hashtag-item" *ngIf="teg !== ''"> #{{teg}}</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

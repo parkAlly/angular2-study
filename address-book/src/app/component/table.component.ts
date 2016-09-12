@@ -24,6 +24,7 @@ import { AddressInterface } from '../service/address.interface';
       border-radius: 50%;
       width: 100%;
       height: 100%;
+      border: 1px solid gainsboro;
     }
     `],
   template: `
@@ -38,7 +39,7 @@ import { AddressInterface } from '../service/address.interface';
                 </div>
               </td>
               <td>{{user.name}}</td>
-              <td>{{user.num}}</td>
+              <td>{{user.num | phoneRegExp}}</td>
               <td class="user-action-icon">
                 <i class="fa" [ngClass]="{'fa-star': user.favorite , 'fa-star-o': !user.favorite}"
                   aria-hidden="true" (click)="handleClickFavorite($event,user.uID)"></i>

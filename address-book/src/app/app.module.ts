@@ -4,6 +4,7 @@ import { FormsModule }    from '@angular/forms';
 
 import { routing }        from './app.routing';
 import { AppComponent }   from './app.component';
+import { PageNotFoundComponent }   from './page-not-found.component';
 import { HomeComponent }  from './home/home.component';
 import { ListComponent }  from './list/list.component';
 import { ViewComponent }  from './detail-view/view.component';
@@ -21,7 +22,8 @@ const pageComponent = [
   HomeComponent,
   ListComponent,
   ViewComponent,
-  ManagementComponent
+  ManagementComponent,
+  PageNotFoundComponent
 ];
 
 const shareComponent = [

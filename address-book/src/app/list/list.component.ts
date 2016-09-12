@@ -25,7 +25,7 @@ import { AddressInterface } from '../service/address.interface';
   template: `
     <div class="btn-place">
       <a class="nav-font" routerLink="/home">HOME</a>
-      <a class="nav-font" routerLink="/management">NEW</a>
+      <a class="nav-font" routerLink="/management/new">NEW</a>
     </div>
     <searchBox (handleSendName) = "handleSetSearchData($event)"></searchBox>
     <contactTable [contactData] = "_contectData" [searchText] = "_searchText" [page]="'view'"

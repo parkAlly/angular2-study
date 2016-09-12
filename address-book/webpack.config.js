@@ -9,7 +9,14 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.ts$/, loader : 'ts'}
+      {
+        test: /\.ts$/,
+        loaders : ['ts','angular2-template-loader']
+      },
+      {
+          test: /\.html$/,
+          loader: 'html'
+      }
     ]
   },
   resolve: {
@@ -28,6 +35,12 @@ module.exports = {
         target: 'http://localhost:8080/',
         pathRewrite: {
           '/[a-zA-Z0-9]*/[a-zA-Z0-9]*' : '/'
+        }
+      },
+      '/[a-zA-Z0-9]*/[a-zA-Z0-9]*/[0-9]*': {
+        target: 'http://localhost:8080/',
+        pathRewrite: {
+          '/[a-zA-Z0-9]*/[a-zA-Z0-9]*/[0-9]*' : '/'
         }
       }
     }

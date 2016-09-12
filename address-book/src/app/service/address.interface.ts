@@ -4,5 +4,5 @@ export interface AddressInterface{
   name: string;
   num: string;
   favorite: boolean;
-  hashList: Array<string>;
+  hashTag:string;// Array<string>;
 }

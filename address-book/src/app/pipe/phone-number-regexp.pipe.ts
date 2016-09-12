@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class phoneRegExpPipe implements PipeTransform {
   transform(phoneNumber : string){
-    let regExp:string = "(\\d{3})(\\d{3,4})(\\d{4})";
-
-    return phoneNumber ? phoneNumber.replace(/regExp/gi, "$1-$2-$3") : null;
+    return phoneNumber ? phoneNumber.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3") : null;
   }
 }

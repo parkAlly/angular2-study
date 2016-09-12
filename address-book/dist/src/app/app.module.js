@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_routing_1 = require('./app.routing');
 var app_component_1 = require('./app.component');
+var page_not_found_component_1 = require('./page-not-found.component');
 var home_component_1 = require('./home/home.component');
 var list_component_1 = require('./list/list.component');
 var view_component_1 = require('./detail-view/view.component');
@@ -21,12 +22,14 @@ var search_box_component_1 = require('./component/search-box.component');
 var table_component_1 = require('./component/table.component');
 var contact_icon_component_1 = require('./component/contact-icon.component');
 var user_filter_pipe_1 = require('./pipe/user-filter.pipe');
+var phone_number_regexp_pipe_1 = require('./pipe/phone-number-regexp.pipe');
 var pageComponent = [
     app_component_1.AppComponent,
     home_component_1.HomeComponent,
     list_component_1.ListComponent,
     view_component_1.ViewComponent,
-    management_component_1.ManagementComponent
+    management_component_1.ManagementComponent,
+    page_not_found_component_1.PageNotFoundComponent
 ];
 var shareComponent = [
     search_box_component_1.SearchBoxComponent,
@@ -34,7 +37,8 @@ var shareComponent = [
     contact_icon_component_1.ContactIconComponent
 ];
 var pipe = [
-    user_filter_pipe_1.userFilterPipe
+    user_filter_pipe_1.userFilterPipe,
+    phone_number_regexp_pipe_1.phoneRegExpPipe
 ];
 var AppModule = (function () {
     function AppModule() {

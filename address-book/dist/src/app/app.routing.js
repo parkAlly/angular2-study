@@ -1,5 +1,6 @@
 "use strict";
 var router_1 = require('@angular/router');
+var page_not_found_component_1 = require('./page-not-found.component');
 var home_component_1 = require('./home/home.component');
 var list_component_1 = require('./list/list.component');
 var view_component_1 = require('./detail-view/view.component');
@@ -23,8 +24,16 @@ var appRoutes = [
         component: view_component_1.ViewComponent
     },
     {
-        path: 'management',
+        path: 'management/:type',
         component: management_component_1.ManagementComponent
+    },
+    {
+        path: 'management/:type/:uID',
+        component: management_component_1.ManagementComponent
+    },
+    {
+        path: '**',
+        component: page_not_found_component_1.PageNotFoundComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

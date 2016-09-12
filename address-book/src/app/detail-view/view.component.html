@@ -1,7 +1,38 @@
-<div>
 <div class="btn-place">
   <a class="nav-font" routerLink="/home">HOME</a>
   <a class="nav-font" routerLink="/list">All CONTACTLIST</a>
-  <a class="nav-font" routerLink="/management">EDIT</a>
+  <a class="nav-font" (click)="handleGoEditPage($event)">EDIT</a>
 </div>
-<div>Detail View...</div></div>
+<div class="detail-area">
+  <div class="section fst">
+    <div class="title">
+      <div class="user-pic-area">
+        <img src={{_selectUserData?.img}}/>
+      </div>
+      <span class="user-name">{{_selectUserData?.name}}</span>
+    </div>
+    <div class="phone-info">
+      <p class="sub-title" id="phone">휴대전화</p>
+      <span>{{_selectUserData?.num | phoneRegExp}}</span>
+      <span class="user-action-icon">
+        <contactIcon [phoneNumber] = "_selectUserData?.num" [contactType] = "'call'"></contactIcon>
+      </span>
+      <span class="user-action-icon">
+        <contactIcon [phoneNumber] = "_selectUserData?.num" [contactType] = "'message'"></contactIcon>
+      </span>
+    </div>
+  </div>
+  <div class="section sec">
+    <div class="hashtag">
+      <p class="sub-title" id="hash">해쉬태그 </p>
+      <div class="hashtag-none" *ngIf="_selectUserData?.hashTag === ''">
+        <span> 해쉬태그를 추가해주세요! </span>
+      </div>
+      <div class="hashtag-result" *ngIf="_selectUserData?.hashTag !== ''">
+        <span *ngFor="let teg of _selectUserData?.hashTag.split('#')" >
+          <span class="hashtag-item" *ngIf="teg !== ''" (click)="handleSearchForTag($event)"> #{{teg}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
