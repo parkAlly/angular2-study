@@ -55,11 +55,11 @@ export class HomeComponent {
   _searchText : string;
 
   ngOnInit(){
+    // this.addressService.getContactData().subscribe((res: any) => this._contectData = res);
     this._contectData = this.addressService.getContactData();
   }
 
   handleSetSearchData(name: string){
-    console.log(name);
     this._searchText = name;
   }
 

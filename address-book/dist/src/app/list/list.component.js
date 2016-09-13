@@ -15,17 +15,16 @@ var ListComponent = (function () {
         this.addressService = addressService;
     }
     ListComponent.prototype.ngOnInit = function () {
+        // this.addressService.getContactData().subscribe((res: any) => this._contectData = res);
         this._contectData = this.addressService.getContactData();
     };
     ListComponent.prototype.handleSetSearchData = function (name) {
-        console.log(name);
         this._searchText = name;
     };
     ListComponent.prototype.handleToggleFavorite = function (userID) {
         this._contectData = this.addressService.setToggleFavorite(userID);
     };
     ListComponent.prototype.handleDeleteUser = function (userID) {
-        console.log(userID);
         this._contectData = this.addressService.setDeleteUser(userID);
     };
     ListComponent = __decorate([

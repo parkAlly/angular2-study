@@ -16,11 +16,11 @@ var ManagementComponent = (function () {
         this.addressService = addressService;
         this.router = router;
         this.route = route;
-        this._changeToUserData = this.addressService.getNewUser(); //새로운 폼
     }
     /* edit의 경우 선택한 유저의 정보, new의 경우 새로운 폼 */
     ManagementComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._changeToUserData = this.addressService.getNewUser(); //새로운 폼
         this.route.params.forEach(function (params) {
             _this._managementType = params['type'];
             if (_this._managementType === 'edit') {

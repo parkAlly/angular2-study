@@ -124,12 +124,12 @@ export class ManagementComponent {
     private addressService: AddressService,
     private router: Router,
     private route: ActivatedRoute) {
-    this._changeToUserData = this.addressService.getNewUser(); //새로운 폼
   }
 
 
   /* edit의 경우 선택한 유저의 정보, new의 경우 새로운 폼 */
   ngOnInit(): void {
+    this._changeToUserData = this.addressService.getNewUser(); //새로운 폼
     this.route.params.forEach((params: Params) => {
       this._managementType = params['type'];
       if(this._managementType === 'edit'){

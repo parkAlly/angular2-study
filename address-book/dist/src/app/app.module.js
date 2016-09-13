@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var app_routing_1 = require('./app.routing');
 var app_component_1 = require('./app.component');
 var page_not_found_component_1 = require('./page-not-found.component');
@@ -48,6 +49,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
                 app_routing_1.routing
             ],
             declarations: pageComponent.concat(shareComponent, pipe),

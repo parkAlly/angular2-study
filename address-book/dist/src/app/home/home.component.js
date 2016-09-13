@@ -15,10 +15,10 @@ var HomeComponent = (function () {
         this.addressService = addressService;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        // this.addressService.getContactData().subscribe((res: any) => this._contectData = res);
         this._contectData = this.addressService.getContactData();
     };
     HomeComponent.prototype.handleSetSearchData = function (name) {
-        console.log(name);
         this._searchText = name;
     };
     HomeComponent.prototype.handleToggleFavorite = function (userID) {
