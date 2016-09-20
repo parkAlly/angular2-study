@@ -19,6 +19,7 @@ import { userFilterPipe } from './pipe/user-filter.pipe';
 import { phoneRegExpPipe } from './pipe/phone-number-regexp.pipe';
 
 import { AddressService } from './service/address.service';
+import { CheckSave } from './service/check-save.service';
 
 const pageComponent = [
   AppComponent,
@@ -54,7 +55,8 @@ const pipe = [
     ...pipe
   ],
   providers: [
-    AddressService
+    AddressService,
+    CheckSave
   ],
   bootstrap:    [ AppComponent ]
 })

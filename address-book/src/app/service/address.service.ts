@@ -40,7 +40,7 @@ export class AddressService{
 
   private _responseToJson = (res:any) => {
     this._contactData = JSON.parse(res._body).data;
-    console.log('this._contactData',this._contactData);
+    // console.log('this._contactData',this._contactData);
     return this._contactData
   }
 

@@ -8,6 +8,8 @@ import { ListComponent }  from './list/list.component';
 import { ViewComponent }  from './detail-view/view.component';
 import { ManagementComponent }  from './detail-management/management.component';
 
+import { CheckSave } from './service/check-save.service';
+
 const appRoutes: Routes = [
   {
    path: '',
@@ -28,10 +30,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'management/:type',
+    canDeactivate: [CheckSave],
     component: ManagementComponent
   },
   {
     path: 'management/:type/:uID',
+    canDeactivate: [CheckSave],
     component: ManagementComponent
   },
   {
