@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, CanDeactivate } from '@angular/router';
 
 import { AddressService } from '../service/address.service';
 import { AddressInterface } from '../service/address.interface';
@@ -110,8 +110,7 @@ interface FileReaderEvent extends Event {
     }
     `
   ],
-  templateUrl: './management.component.html',
-  providers: [AddressService]
+  templateUrl: './management.component.html'
 })
 export class ManagementComponent {
 

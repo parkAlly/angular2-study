@@ -46,8 +46,7 @@ import { AddressInterface } from '../service/address.interface';
       (handleToggleFavorite) = "handleToggleFavorite($event)"
       (handleDeleteUser) = "handleDeleteUser($event)"
       ></contactTable>
-  `,
-  providers: [AddressService]
+  `
 })
 export class HomeComponent {
   constructor(private addressService: AddressService) {}

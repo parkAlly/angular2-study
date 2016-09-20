@@ -18,6 +18,8 @@ import { ContactIconComponent }  from './component/contact-icon.component';
 import { userFilterPipe } from './pipe/user-filter.pipe';
 import { phoneRegExpPipe } from './pipe/phone-number-regexp.pipe';
 
+import { AddressService } from './service/address.service';
+
 const pageComponent = [
   AppComponent,
   HomeComponent,
@@ -50,6 +52,9 @@ const pipe = [
     ...pageComponent,
     ...shareComponent,
     ...pipe
+  ],
+  providers: [
+    AddressService
   ],
   bootstrap:    [ AppComponent ]
 })
