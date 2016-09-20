@@ -68,7 +68,7 @@ export class AddressService{
 
   /* 선택한 유저 정보 리턴 */
   getSelectUserData(userID: number){
-    console.log('this._contactData',this._contactData);
+    // console.log('this._contactData',this._contactData);
     let userIndex : number = this.getUserCurrentIndex(userID);
     return this._contactData[userIndex];
   }
@@ -90,15 +90,28 @@ export class AddressService{
 
   /* 유저 추가 */
   setInsertUser(userInfo: AddressInterface){
-    // console.log(this._contactData );
-    // this._contactData.push(userInfo);
-    return this._contactData;
+    let checkInsert:boolean = false;
+    try{
+      this._contactData.push(userInfo);
+      checkInsert = true;
+    }catch(e){
+      alert('ERROR :( ');
+    }
+
+    return checkInsert;
   }
 
   /* 유저 수정 */
   setUpdateUser(userInfo: AddressInterface){
-    let userIndex : number = this.getUserCurrentIndex(userInfo.uID);
-    this._contactData[userIndex] = userInfo;
-    return this._contactData;
+    let checkInsert:boolean = false;
+    try{
+      let userIndex : number = this.getUserCurrentIndex(userInfo.uID);
+      this._contactData[userIndex] = userInfo;
+      checkInsert = true;
+    }catch(e){
+      alert('ERROR :( ');
+    }
+
+    return checkInsert;
   }
 }

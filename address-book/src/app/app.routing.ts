@@ -8,7 +8,7 @@ import { ListComponent }  from './list/list.component';
 import { ViewComponent }  from './detail-view/view.component';
 import { ManagementComponent }  from './detail-management/management.component';
 
-import { CheckSave } from './service/check-save.service';
+import { CheckSaveService } from './service/check-save.service';
 
 const appRoutes: Routes = [
   {
@@ -30,12 +30,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'management/:type',
-    canDeactivate: [CheckSave],
+    canDeactivate: [CheckSaveService],
     component: ManagementComponent
   },
   {
     path: 'management/:type/:uID',
-    canDeactivate: [CheckSave],
+    canDeactivate: [CheckSaveService],
     component: ManagementComponent
   },
   {

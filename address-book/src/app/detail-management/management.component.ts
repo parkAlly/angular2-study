@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, CanDeactivate } from '@angular/router';
 
+import { CheckSaveService } from '../service/check-save.service';
 import { AddressService } from '../service/address.service';
 import { AddressInterface } from '../service/address.interface';
 /*
@@ -121,6 +122,7 @@ export class ManagementComponent {
 
   constructor(
     private addressService: AddressService,
+    private checkSaveService: CheckSaveService,
     private router: Router,
     private route: ActivatedRoute) {
   }
@@ -157,13 +159,18 @@ export class ManagementComponent {
   /* 변경 및 추가사항 저장 */
   handleDoSave(event : any){
     let returnValue:boolean = confirm("저장하시겠습니까 ?");
+    let saveResult:boolean;
+
     if(returnValue){
       if(this._managementType === 'edit'){
-        this.addressService.setUpdateUser(this._changeToUserData);
+        saveResult = this.addressService.setUpdateUser(this._changeToUserData);
       }else{
-        this.addressService.setInsertUser(this._changeToUserData);
+        saveResult = this.addressService.setInsertUser(this._changeToUserData);
       }
-      this.router.navigate(['/list']);
+      if(saveResult){
+        this.checkSaveService.isCheckedSave();
+        this.router.navigate(['/list']);
+      }
     }
   }
 

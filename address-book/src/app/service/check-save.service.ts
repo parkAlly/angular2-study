@@ -6,9 +6,15 @@ export interface CanComponentDeactivate {
 }
 
 @Injectable()
-export class CheckSave implements CanDeactivate<CanComponentDeactivate> {
+export class CheckSaveService implements CanDeactivate<CanComponentDeactivate> {
+  _isChecked: boolean  = false;
+
+  isCheckedSave(){
+    this._isChecked = true;
+  }
+
   canDeactivate(component: CanComponentDeactivate) {
-    let confirmValue = confirm("페이지를 이동하시겠습니까?");
+    let confirmValue = this._isChecked ? this._isChecked : confirm("페이지를 이동하시겠습니까?");
     return confirmValue;
   }
 }
