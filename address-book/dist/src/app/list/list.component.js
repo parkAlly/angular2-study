@@ -33,8 +33,7 @@ var ListComponent = (function () {
             styles: [
                 "\n    .btn-place {\n      padding: 3px;\n      margin-right: 10px;\n      position: absolute;\n      top: 0px;\n      right: 0px;\n    }\n    .nav-font {\n      font-size: 1.0em;\n      color: #337ab7;\n      border: 1px solid #337ab7;\n      border-radius: 5px;\n      padding: 1px 4px 1px 4px;\n    }\n    "
             ],
-            template: "\n    <div class=\"btn-place\">\n      <a class=\"nav-font\" routerLink=\"/home\">HOME</a>\n      <a class=\"nav-font\" routerLink=\"/management/new\">NEW</a>\n    </div>\n    <searchBox (handleSendName) = \"handleSetSearchData($event)\"></searchBox>\n    <contactTable [contactData] = \"_contectData\" [searchText] = \"_searchText\" [page]=\"'view'\"\n      (handleToggleFavorite) = \"handleToggleFavorite($event)\"\n      (handleDeleteUser) = \"handleDeleteUser($event)\"\n      ></contactTable>\n  ",
-            providers: [address_service_1.AddressService]
+            template: "\n    <div class=\"btn-place\">\n      <a class=\"nav-font\" routerLink=\"/home\">HOME</a>\n      <a class=\"nav-font\" routerLink=\"/management/new\">NEW</a>\n    </div>\n    <searchBox (handleSendName) = \"handleSetSearchData($event)\"></searchBox>\n    <contactTable [contactData] = \"_contectData\" [searchText] = \"_searchText\" [page]=\"'view'\"\n      (handleToggleFavorite) = \"handleToggleFavorite($event)\"\n      (handleDeleteUser) = \"handleDeleteUser($event)\"\n      ></contactTable>\n  "
         }), 
         __metadata('design:paramtypes', [address_service_1.AddressService])
     ], ListComponent);

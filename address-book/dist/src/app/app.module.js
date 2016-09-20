@@ -24,6 +24,7 @@ var table_component_1 = require('./component/table.component');
 var contact_icon_component_1 = require('./component/contact-icon.component');
 var user_filter_pipe_1 = require('./pipe/user-filter.pipe');
 var phone_number_regexp_pipe_1 = require('./pipe/phone-number-regexp.pipe');
+var address_service_1 = require('./service/address.service');
 var pageComponent = [
     app_component_1.AppComponent,
     home_component_1.HomeComponent,
@@ -53,6 +54,9 @@ var AppModule = (function () {
                 app_routing_1.routing
             ],
             declarations: pageComponent.concat(shareComponent, pipe),
+            providers: [
+                address_service_1.AddressService
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
