@@ -168,7 +168,7 @@ export class ManagementComponent {
         saveResult = this.addressService.setInsertUser(this._changeToUserData);
       }
       if(saveResult){
-        this.checkSaveService.isCheckedSave();
+        this.checkSaveService.isCheckedSave(); //저장이 정상적으로 완료되면 떠날때 alert이 뜨지않게하기위해
         this.router.navigate(['/list']);
       }
     }

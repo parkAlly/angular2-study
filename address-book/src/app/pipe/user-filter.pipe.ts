@@ -15,3 +15,9 @@ export class userFilterPipe implements PipeTransform {
     }
   }
 }
+
+
+/*
+type 이 home 일때에는 검색어가 없으면 결과가 없는게 default
+type 이 list 일때에는 검색어가 없으도 전체결과가 있는게 default
+*/

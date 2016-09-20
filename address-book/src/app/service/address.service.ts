@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-/*An observable is a stream of events that we can process with array-like operators.*/
+/* An observable is a stream of events that we can process with array-like operators.*/
+/* Http..Observable 못씀 ㅠ.ㅠ 흑흑 */
 
 import { Subject }     from 'rxjs/Subject';
 

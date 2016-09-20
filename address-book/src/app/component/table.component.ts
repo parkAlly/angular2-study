@@ -78,7 +78,7 @@ export class ContactTableComponent {
   // }
 
   handleClickFavorite($event: any, userID : number){
-    // tr event가 먹히는 것을 방지
+    /* tr event가 먹히는 것을 방지 */
     $event.stopPropagation();
     this.handleToggleFavorite.emit(userID);
   }

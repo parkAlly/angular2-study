@@ -92,7 +92,7 @@ export class ViewComponent {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      this._selectUserId = +params['uID'];
+      this._selectUserId = +params['uID']; //uID를 숫자로 바꿈 (+)
       this._selectUserData = this.addressService.getSelectUserData(this._selectUserId);
     });
   }

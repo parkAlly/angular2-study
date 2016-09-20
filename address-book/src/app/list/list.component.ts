@@ -44,14 +44,15 @@ export class ListComponent {
     this._contectData = this.addressService.getContactData();
   }
 
+  /* 검색어 입력 */
   handleSetSearchData(name: string){
     this._searchText = name;
   }
-
+  /* 즐찾 버튼 토글 기능 */
   handleToggleFavorite(userID: number){
     this._contectData = this.addressService.setToggleFavorite(userID);
   }
-
+  /* 유저 삭제 */
   handleDeleteUser(userID: number){
     this._contectData = this.addressService.setDeleteUser(userID);
   }
